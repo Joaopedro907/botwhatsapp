@@ -27,9 +27,11 @@ app.listen(PORT, () => {
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     }
 });
+
 
 let sessoes = {};
 const TEMPO_RESET = 30 * 60 * 1000;
@@ -256,3 +258,4 @@ departamentoti@hausen.eng.br`;
 });
 
 client.initialize();
+
