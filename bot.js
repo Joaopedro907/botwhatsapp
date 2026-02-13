@@ -51,7 +51,8 @@ EVENTOS
 */
 
 client.on('qr', (qr) => {
-    console.log('\nEscaneie o QR Code abaixo:\n');
+    console.clear();
+    console.log('Escaneie o QR Code abaixo:\n');
     qrcode.generate(qr, { small: true });
 });
 
@@ -90,3 +91,4 @@ INICIALIZAÇÃO
 */
 
 client.initialize();
+
