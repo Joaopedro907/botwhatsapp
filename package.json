@@ -2,9 +2,9 @@
   "name": "bot-whatsapp",
   "version": "1.0.0",
   "description": "Bot WhatsApp com whatsapp-web.js",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node bot.js"
   },
   "author": "João Pedro",
   "license": "ISC",
