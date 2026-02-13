@@ -1,4 +1,27 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
+const qrcode = require('qrcode');
+const express = require('express');
+const app = express();
+
+let qrCodeData = null;
+
+client.on('qr', async (qr) => {
+    qrCodeData = await qrcode.toDataURL(qr);
+    console.log('QR gerado!');
+});
+
+app.get('/', (req, res) => {
+    if (qrCodeData) {
+        res.send(`<img src="${qrCodeData}" />`);
+    } else {
+        res.send('QR ainda não gerado...');
+    }
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
 
 const client = new Client({
   authStrategy: new LocalAuth(),
@@ -225,3 +248,4 @@ app.listen(PORT, () => {
 
 
 client.initialize();
+
